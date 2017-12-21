@@ -1,0 +1,158 @@
+package com.service;
+
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import com.Exception.DataLayerException;
+import com.Exception.ServiceLayerException;
+import com.bean.Account;
+import com.bean.AccountSchedule;
+import com.bean.Customer;
+import com.dao.AccountDAO;
+
+public class AccountService {
+	AccountDAO accountDAO = new AccountDAO();
+
+	public String addAccount(Account account) throws ServiceLayerException {
+		try{
+			return accountDAO.addAccount(account);
+		}catch(DataLayerException e)
+		{
+			throw new ServiceLayerException(e.getMessage());
+		}
+
+	}
+
+	public Account getCashierAccount(long l) throws  ServiceLayerException{
+		
+		try{
+			return accountDAO.getCashierAccount(l);
+		}catch(DataLayerException e)
+		{
+			throw new ServiceLayerException(e.getMessage());
+		}
+
+	}
+
+	public ArrayList<Account> getAllAccount() throws ServiceLayerException{
+		
+		try{
+			return accountDAO.getAllAccount();
+		}catch(DataLayerException e)
+		{
+			throw new ServiceLayerException(e.getMessage());
+		}
+	}
+	public double getBalance(long accountId) throws ServiceLayerException{
+		
+		
+		try{
+			return accountDAO.getBalance(accountId);
+		}catch(DataLayerException e)
+		{
+			throw new ServiceLayerException(e.getMessage());
+		}
+		
+	}
+	/*
+	 * public ArrayList<Account> viewAccount(int id) throws
+	 * ClassNotFoundException, SQLException{ return accountDAO.viewAccount(id);
+	 * 
+	 * }
+	 */
+	public String deleteAccount(Long accountId) throws ServiceLayerException {
+		
+		try{
+			return accountDAO.deleteAccount(accountId);
+		}catch(DataLayerException e)
+		{
+			throw new ServiceLayerException(e.getMessage());
+		}
+	}
+
+	public ArrayList<Integer> getCustomerId() throws ServiceLayerException {
+		
+		try{
+			return accountDAO.getCustomerId();
+		}catch(DataLayerException e)
+		{
+			throw new ServiceLayerException(e.getMessage());
+		}
+	}
+
+	public ArrayList<String> getCustomerName() throws ServiceLayerException {
+		
+		try{
+			return accountDAO.getCustomerName();
+		}catch(DataLayerException e)
+		{
+			throw new ServiceLayerException(e.getMessage());
+		}
+	}
+
+	public static void main(String[] args) {
+		int initialDelay = 3000; // start after 30 seconds
+		int period = 5000; // repeat every 5 seconds
+		Timer timer = new Timer();
+		TimerTask task = new TimerTask() {
+			public void run() {
+				Date date = new Date();
+				java.sql.Date date1 = new java.sql.Date(date.getTime());
+				Timestamp lastUpdated1 = new Timestamp(date1.getTime());
+				AccountDAO dao = new AccountDAO();
+				ArrayList<AccountSchedule> accList = new ArrayList<>();
+				try {
+					accList = dao.getAccountNoOnStatus();
+					for(AccountSchedule account:accList)
+					{
+						int diff=(int) ((account.getLastupdated().getTime()-lastUpdated1.getTime()))/(1000*60*60*24);
+						if(diff<0)
+						{
+							dao.setStatusActive(account.getAccountId());
+						}
+					}
+				} catch (DataLayerException e)
+				{
+					e.printStackTrace();
+				}
+
+			}
+		};
+		timer.scheduleAtFixedRate(task, initialDelay, period);
+
+	}
+
+	public ArrayList<Account> viewAccount() throws ServiceLayerException {
+		
+		try{
+			return accountDAO.viewAccount();
+		}catch(DataLayerException e)
+		{
+			throw new ServiceLayerException(e.getMessage());
+		}
+	}
+	public ArrayList<Long> getAccountIdByCustomerId(int customerId) throws ServiceLayerException{
+		
+		try{
+			return accountDAO.getAccountIdByCustomerId(customerId);
+		}catch(DataLayerException e)
+		{
+			throw new ServiceLayerException(e.getMessage());
+		}
+	}
+
+	public Account getAccById(long accId) throws ServiceLayerException {
+		// TODO Auto-generated method stub
+		
+		try{
+			return accountDAO.getAccById(accId);
+		}catch(DataLayerException e)
+		{
+			throw new ServiceLayerException(e.getMessage());
+		}
+	}
+}

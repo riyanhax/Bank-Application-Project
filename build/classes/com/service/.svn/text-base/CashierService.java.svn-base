@@ -1,0 +1,43 @@
+package com.service;
+
+import java.sql.SQLException;
+
+import com.Exception.DataLayerException;
+import com.Exception.ServiceLayerException;
+import com.dao.CashierDAO;
+
+public class CashierService {
+	CashierDAO cashierDAO=new CashierDAO();
+	public boolean DepositAmount(long AccountId,double Balance) throws ServiceLayerException
+	{
+		
+		try{
+			return cashierDAO.DepositAmount(AccountId, Balance);
+		}catch(DataLayerException e)
+		{
+			throw new ServiceLayerException(e.getMessage());
+		}
+	}
+	public boolean WithDrawAmount(long AccountId,double Balance) throws ServiceLayerException
+	{
+		
+			try{
+				return cashierDAO.WithDrawAmount(AccountId, Balance);
+			}catch(DataLayerException e)
+			{
+				throw new ServiceLayerException(e.getMessage());
+			}
+	}
+	public boolean TransferAmount(long fromCustomerId,long toCustomerId,double Balance)throws ServiceLayerException
+	{
+		
+		try{
+			return cashierDAO.TransferAmount(fromCustomerId, toCustomerId, Balance);
+		}catch(DataLayerException e)
+		{
+			throw new ServiceLayerException(e.getMessage());
+		}
+	}
+	
+}
+

@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+encoding//WebContent/JSP/ViewTransaction.jsp=UTF-8
+encoding//src/com/bean/Account.java=UTF-8
+encoding//src/com/dao/AccountDAO.java=UTF-8
+encoding//src/com/service/AccountService.java=UTF-8

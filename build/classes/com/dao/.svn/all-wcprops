@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/CHN18/!svn/ver/1618/M68/ProjectDelivery/Project2/trunk/Group2/trunk/Code/PROJECTTEAMD/src/com/dao
+END
+AccountDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/CHN18/!svn/ver/1598/M68/ProjectDelivery/Project2/trunk/Group2/trunk/Code/PROJECTTEAMD/src/com/dao/AccountDAO.java
+END
+CashierDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/CHN18/!svn/ver/1599/M68/ProjectDelivery/Project2/trunk/Group2/trunk/Code/PROJECTTEAMD/src/com/dao/CashierDAO.java
+END
+CustomerDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/CHN18/!svn/ver/1618/M68/ProjectDelivery/Project2/trunk/Group2/trunk/Code/PROJECTTEAMD/src/com/dao/CustomerDAO.java
+END
+TransactionDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/CHN18/!svn/ver/1603/M68/ProjectDelivery/Project2/trunk/Group2/trunk/Code/PROJECTTEAMD/src/com/dao/TransactionDAO.java
+END
+LoginDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/CHN18/!svn/ver/1602/M68/ProjectDelivery/Project2/trunk/Group2/trunk/Code/PROJECTTEAMD/src/com/dao/LoginDAO.java
+END

@@ -1,0 +1,10 @@
+package com.Exception;
+
+public class ServiceLayerException extends RuntimeException {
+
+	public ServiceLayerException(String arg0) {
+		super(arg0);
+		// TODO Auto-generated constructor stub
+	}
+
+}
